@@ -1,0 +1,163 @@
+# testrepo
+quanah:$ cd ~/.ssh
+quanah:/.ssh$ ls -htlr
+total 12K
+-rw-r--r-- 1 ryvazque BIOL4301  408 Jan 20  2015 id_rsa.pub
+-rw------- 1 ryvazque BIOL4301 1.7K Jan 20  2015 id_rsa
+-rw------- 1 ryvazque BIOL4301  408 Jan 20  2015 authorized_keys
+quanah:/.ssh$ lr
+-bash: lr: command not found
+quanah:/.ssh$ ls -ltr
+total 12
+-rw-r--r-- 1 ryvazque BIOL4301  408 Jan 20  2015 id_rsa.pub
+-rw------- 1 ryvazque BIOL4301 1671 Jan 20  2015 id_rsa
+-rw------- 1 ryvazque BIOL4301  408 Jan 20  2015 authorized_keys
+quanah:/.ssh$ cat config
+cat: config: No such file or directory
+quanah:/.ssh$  cat config
+cat: config: No such file or directory
+quanah:/.ssh$ ssh -T git@github.com
+Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+Permission denied (publickey).
+quanah:/.ssh$ ssh-keygen -t rsa -b 4096 -C "ryan.r.vazquez@ttu.edu"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ryvazque/.ssh/id_rsa): github
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in github.
+Your public key has been saved in github.pub.
+The key fingerprint is:
+ef:52:19:d3:f3:1c:78:72:be:76:16:ff:0f:cf:ef:ae ryan.r.vazquez@ttu.edu
+The key's randomart image is:
++--[ RSA 4096]----+
+|                 |
+|                 |
+|           . .   |
+|          o = +  |
+|        S  + O . |
+|         .o   +. |
+|         ..   ..o|
+|        ..    o++|
+|         ..  .E*%|
++-----------------+
+quanah:/.ssh$ ls -ltr
+total 24
+-rw-r--r-- 1 ryvazque BIOL4301  408 Jan 20  2015 id_rsa.pub
+-rw------- 1 ryvazque BIOL4301 1671 Jan 20  2015 id_rsa
+-rw------- 1 ryvazque BIOL4301  408 Jan 20  2015 authorized_keys
+-rw-r--r-- 1 ryvazque BIOL4301  392 Feb 21 12:43 known_hosts
+-rw-r--r-- 1 ryvazque BIOL4301  748 Feb 21 12:45 github.pub
+-rw------- 1 ryvazque BIOL4301 3243 Feb 21 12:45 github
+quanah:/.ssh$ cat github.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDX7ZJpCYtEJuo49LQTaEdSTXCgLQLzSiYt6dkTnigKogpeQUI8SqcvkBvRCUsMX5IcskZX6kX05M2Ca93Od+rCOEUocsEHgQdxrN4UxbDAxaTiSM0nTmCCxTahYnc8VZazB2CiUqbPMDRYjGarhWamwCDqaug2A3cMXaiXx7YVn+DK7eTUuvvVvMpmPKAJzaRFVGSCHFOZ3rRpXogyom26ZDqHFd0ILKkX3vGEVQzq6bvvFuXMQgvzfmVlkiOQMtvKjeyKSi//C1Cvf38f60IhLi2gumm+qYgdWTnenODhgAlWsHUwCq17IT+rW3UpdvG/kWlIJYCm+WzKLdUi6A9wJzW64wOiem8V1te+P15IRT1h7KamZjAZrCdNf2dn7t8IevxP5nDU0Z1WToP7oxoRfPgKNbvVacyhVfgiXRlNc58n485a2/XT22jxEMDTtP5PhYk4BQbkus1SG51ztN1AMDg28dANbjOc/IQeV6WtWBz4TGr1QRrWxm8280C6XjGYgsI2dSIOKajiiMsioI/REl09F3TNz0An64ApLrZkKlUIJ2SCjbDVe7pPLiZhFHArs9ZhRxABIPCU5fPkh1TVKi9VsrCdldQJrrrjPKtsH6cwRYRFGK/s7aDotCZQToxrSYIEY6TE8f/jz00/hSxSW4rwv8vEix4HocF/KfVNPw== ryan.r.vazquez@ttu.edu
+quanah:/.ssh$ ssh -T git@github.com
+Permission denied (publickey).
+quanah:/.ssh$ cat config
+
+ssh-keygen -t rsa -b 4096 -C "ryan.r.vazquez@ttu.edu"
+
+Host github.com*
+   IdentityFile ~/.ssh/github
+   StrictHostKeyChecking=no
+
+Host *
+   IdentityFile ~/.ssh/cluster
+   StrictHostKeyChecking=no
+quanah:/.ssh$ ssh -T git@github.com
+
+git init testrepo
+
+git STATUS
+will tell you what you have done under GIT
+
+
+git add exact file
+git add . will add all
+
+add and commit frequently
+diary for the past
+
+to save changes git commit -m "add README.md"
+
+vim README.md
+
+quanah:/.ssh$ cat config
+Host github.com*
+   IdentityFile ~/.ssh/github
+   StrictHostKeyChecking=no
+
+Host *
+   IdentityFile ~/.ssh/cluster
+   StrictHostKeyChecking=no
+quanah:/.ssh$ ssh -T git@github.com
+Hi ryanvazquez1! You've successfully authenticated, but GitHub does not provide shell access.
+quanah:/.ssh$ git init testrepo
+Initialized empty Git repository in /home/ryvazque/.ssh/testrepo/.git/
+quanah:/.ssh$ ls -a
+.  ..  authorized_keys  config  github  github.pub  id_rsa  id_rsa.pub  known_hosts  testrepo
+quanah:/.ssh$ cd ./testrepo
+quanah:/.ssh/testrepo$ ls -a
+.  ..  .git
+quanah:/.ssh/testrepo$ touch README.md
+quanah:/.ssh/testrepo$ add README.md
+-bash: add: command not found
+quanah:/.ssh/testrepo$ git add README.md
+quanah:/.ssh/testrepo$ git commit -m "first"
+[master (root-commit) 5e3d4fd] first
+ Committer: Ryan Vazquez <ryvazque@quanah.hpcc.ttu.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+quanah:/.ssh/testrepo$ git remote add origin git@github.com:ryanvazquez1/testrepo.git
+quanah:/.ssh/testrepo$ git push -u origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 219 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:ryanvazquez1/testrepo.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+quanah:/.ssh/testrepo$ cd ..
+quanah:/.ssh$ pwd                  
+/home/ryvazque/.ssh
+quanah:/.ssh$ mkdir gitrepos
+quanah:/.ssh$ cd ./gitrepos
+quanah:/.ssh/gitrepos$ git clone https://github.com/davidaray/overlap.git
+Cloning into 'overlap'...
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+quanah:/.ssh/gitrepos$ git branch
+fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+quanah:/.ssh/gitrepos$ cd ./overlap 
+quanah:/.ssh/gitrepos/overlap$ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/davidaray/overlap
+   b9f611b..42378c6  master     -> origin/master
+Updating b9f611b..42378c6
+Fast-forward
+ overlap_31jan2018.py | 570 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 570 insertions(+)
+ create mode 100755 overlap_31jan2018.py
+quanah:/.ssh/gitrepos/overlap$ git status
+# On branch master
+nothing to commit, working directory clean
+quanah:/.ssh/gitrepos/overlap$ git branch feature1
+quanah:/.ssh/gitrepos/overlap$ git checkout feature1
+Switched to branch 'feature1'
+quanah:/.ssh/gitrepos/overlap$ 
+
